@@ -1,8 +1,8 @@
-const { DescribeCommentList, CreateComment } = require('../service/comment.service');
+const { DescribeCommentList } = require('../service/comment.service');
 class CommentController {
   async list(ctx, next) {
-    const { moment_id: momentId } = ctx.request.body;
-    const result = await DescribeCommentList(momentId);
+    const result = await DescribeCommentList();
+    console.log('result', result)
     ctx.body = {
       status: 200,
       commentSet: result,
